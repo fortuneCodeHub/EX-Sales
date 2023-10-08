@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX-Sales || See This Particular Product</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="bootstrap-icons-1.9.1/cart3.svg" type="image/x-icon">
+
+
+    <!-- Owl Carousel Links -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Icon Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- SVG Section Begins -->
+    <svg style="display:none">
+        <!-- Hamburger menu -->
+        <symbol id="list" viewbox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </symbol>
+        <!-- Shopping cart -->
+        <symbol id="cart3" viewbox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+        <!-- Facebook Icon -->
+        <symbol id="facebook" viewbox="0 0 16 16">
+            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+        </symbol>
+        <!-- Instagram Icon -->
+        <symbol id="instagram" viewbox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+        </symbol>
+        <!-- Twitter Icon -->
+        <symbol id="twitter" viewbox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+        </symbol>
+        <!-- Search Icon -->
+        <symbol id="search" viewbox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </symbol>
+        <!-- Star Fill -->
+        <symbol id="star-fill" viewbox="0 0 16 16">
+            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+        </symbol>
+        <!-- Star Half -->
+        <symbol id="star-half" viewbox="0 0 16 16">
+            <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
+        </symbol>
+        <!-- Truck -->
+        <symbol id="truck" viewbox="0 0 16 16">
+            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+        </symbol>
+        <!-- Money -->
+        <symbol id="cash" viewbox="0 0 16 16">
+            <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+            <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
+        </symbol>
+        <!-- repeat -->
+        <symbol id="repeat" viewbox="0 0 16 16">
+            <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z"/>
+        </symbol>
+        <!-- Clock -->
+        <symbol id="clock" viewbox="0 0 16 16">
+            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+        </symbol>
+        <!-- Pinterest -->
+        <symbol id="pinterest" viewbox="0 0 16 16">
+            <path d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0z"/>
+        </symbol>
+        <!-- Check all -->
+        <symbol id="check-all" viewbox="0 0 16 16">
+            <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
+        </symbol>
+        <!-- Caret Right -->
+        <symbol id="caret-right" viewbox="0 0 16 16">
+            <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+        </symbol>
+        <!-- Caret Left -->
+        <symbol id="caret-left" viewbox="0 0 16 16">
+            <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+        </symbol>
+        <!-- Person Circle -->
+        <symbol id="person-circle" viewbox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </symbol>
+    </svg>
+    <!-- SVG Section ends -->
+
+    <!-- Header Begins -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 d-none d-sm-block" id="social-sec">
+                    <div class="d-flex align-items-center">
+                        <a href="#" class="icon-btn">
+                            <!-- <i class="bi bi-facebook facebook"></i> -->
+                            <svg class="bi facebook" width="15" height="15">
+                                <use xlink:href="#facebook"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="icon-btn">
+                            <!-- <i class="bi bi-instagram instagram"></i> -->
+                            <svg class="bi instagram" width="15" height="15">
+                                <use xlink:href="#instagram"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="icon-btn">
+                            <!-- <i class="bi bi-twitter twitter"></i> -->
+                            <svg class="bi twitter" width="15" height="15">
+                                <use xlink:href="#twitter"/>
+                            </svg>
+                        </a>
+                    </svg></div>
+                </div>
+                <div class="col-12 col-sm-6" id="ecom-sec">
+                    <div class="d-flex justify-content-center align-items-center justify-content-sm-end">
+                        <a href="users.html" class="person-circle-btn">
+                            <!-- <i class="bi bi-person-circle"></i> -->
+                            <svg class="bi person-circle" width="15" height="15">
+                                <use xlink:href="#person-circle"/>
+                            </svg>
+                        </a>
+                        <div class="bg-light px-1">
+                            <a href="cart.html" class="cart3-btn rounded-pill">
+                                <!-- <i class="bi bi-cart3 cart3"></i> -->
+                                <span>1</span>
+                                <svg class="bi cart3" width="15" height="15">
+                                    <use xlink:href="#cart3"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <a href="wishlist.html" id="authentication">Wishlist</a>
+                        <a href="signup.html" id="authentication">SignUp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Ends -->
+
+    <!-- Navbar Begins -->
+    <nav class="navbar navbar-expand-lg p-2 p-lg-0 sticky-top">
+        <div class="container">
+            <a href="" class="navbar-brand text-uppercase fs-5 fw-700"><span style="color: var(--green);font-size: 30px">EX</span>~Sales</a>
+            <button class="navbar-toggler" type="button" data-bs-target="#navmenu" data-bs-toggle="collapse">
+                <!-- <i class="bi bi-list" width="25" height="25"></i> -->
+                <svg class="bi" width="25" height="25" >
+                    <use xlink:href="#list" />
+                </svg>
+            </button>
+            <div class="navbar-collapse collapse" id="navmenu">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item my-sm-0 my-1 mx-sm-1 mx-0">
+                        <a href="index.html" class="nav-link px-sm-2 px-2" id="nav-link">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item my-sm-0 my-1 mx-sm-1 mx-0">
+                        <a href="#service" class="nav-link px-sm-2 px-2" id="nav-link">
+                            Services
+                        </a>
+                    </li>
+                    <li class="nav-item my-sm-0 my-1 mx-sm-1 mx-0">
+                        <a href="#department" class="nav-link category-btn px-sm-2 px-2" id="nav-link">
+                            Departments <i class="bi bi-chevron-down fw-700"></i>
+                            <div class="category-drop shadow">
+                                <div class="text-end"><button type="button" class="btn-close" data-bs-dismiss="category-drop" aria-label="Close" style="width:5px;height:5px"></button></div>
+                                 <span>Categories</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <form class="search-form text-center d-lg-none d-block py-1 px-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <button class="btn" type="submit" name="search">
+                            <!-- <i class="bi bi-search search"></i> -->
+                            <svg class="bi search" height="15" width="15">
+                                <use xlink:href="#search" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <form class="search-form py-1 d-lg-block d-none">
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <button class="btn" type="submit" name="search">
+                        <!-- <i class="bi bi-search search"></i> -->
+                        <svg class="bi search" height="15" width="15">
+                            <use xlink:href="#search" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
+
+    <!-- Linking Begins -->
+    <div class="py-4 px-2 bg-light linking">
+        <div class="container">
+          <p class="h6" style="color: var(--green);font-size: 16px;" ><a href="index.html">Home</a> > <a href="department.html">Department</a> > <a href="product.html">Product</a></p>  
+        </div>
+    </div>
+    <!-- Linking Ends -->
+
+    <!-- product details begins -->
+    <section id="product-details" class="p-5"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="slider-container">
+                        <div class="slide">
+                            <img src="Image/product_1.png" class="slide-img" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="Image/product_2.png" class="slide-img" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="Image/product_3.png" class="slide-img" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="Image/product_4.png" class="slide-img" alt="">
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button class="prevBtn" type="button">
+                            <!-- <i class="bi bi-caret-left"></i> -->
+                            <svg class="bi caret-left">
+                                <use xlink:href="#caret-left" />
+                            </svg>
+                        </button>
+                        <button class="nextBtn" type="button">
+                            <!-- <i class="bi bi-caret-right"></i> -->
+                            <svg class="bi caret-right">
+                                <use xlink:href="#caret-right" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="image-show d-flex align-items-center justify-content-start">
+                        <img src="Image/product_1.png" alt="">
+                        <img src="Image/product_2.png" alt="">
+                        <img src="Image/product_3.png" alt="">
+                        <img src="Image/product_4.png" alt="">
+                    </div>
+                    <div class="row py-4 g-3">
+                        <div class="col-lg-6">
+                            <button class="btn buy-btn text-light" style="width: 100%;" type="submit" name="proceed_to_buy">Proceed To Buy</button>
+                        </div>
+                        <!-- Add to Cart Ability -->
+                        <div class="col-lg-6">
+                            <button class="btn add-to-cart-btn text-light" type="submit" style="width: 100%;" name="add_to_cart">Add To Cart</button>
+                        </div>
+                        <!-- Add to cart Ability -->
+                    </div>
+                </div>
+                <div class="col-md-6 py-5">
+                    <h5 class="fs-20">
+                        Nike Air Max
+                    </h5>
+                    <small></small>
+                    <div class="d-lg-flex">
+                        <div class="fs-14">
+                            <!-- <span><i class="bi bi-star-fill text-warning"></i></span>
+                            <span><i class="bi bi-star-fill"></i></span>
+                            <span><i class="bi bi-star-fill"></i></span>
+                            <span><i class="bi bi-star-fill"></i></span>
+                            <span><i class="bi bi-star-half"></i></span> -->
+                            <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                            <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                            <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                            <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                            <span><svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg></span>
+                        </div>
+                        <a href="" class="px-2 fs-14">20534 ratings | 1000+ answered questions/</a>
+                    </div>
+                    <hr class="m-0">
+                    <table class="my-3">
+                        <thead>
+                            <tr class="fs-14">
+                                <td class="p-1">M.R.P</td>
+                                <td class="p-1"><del>$50</del></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fs-14">
+                                <td class="p-1">
+                                    Deal Price
+                                </td>
+                                <td class="fs-20 text-danger p-1">
+                                    $<span>$40</span>
+                                    <small class="text-dark">&nbsp;&nbsp; inclusive of all taxes
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr class="fs-14">
+                                <td class="p-1">Discount</td>
+                                <td class="text-success font-size-18">$discount</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Product Price Ends -->
+
+                    <!-- Policy -->
+                    <div id="policy">
+                        <div class="d-flex align-items-center justify-content-between p-4">
+                            <div class="text-center">
+                                <div class="text-center">
+                                    <!-- <i class="bi bi-repeat"></i> -->
+                                    <svg class="bi repeat" width="30" height="30">
+                                        <use xlink:href="#repeat" />
+                                    </svg>
+                                </div>
+                                <a href="" class="font-size-12" style="text-decoration: none;">10 Days <br>Replacement</a>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-center">
+                                    <!-- <i class="bi bi-truck"></i> -->
+                                    <svg class="bi truck" width="30" height="30">
+                                        <use xlink:href="#truck" />
+                                    </svg>
+                                </div>
+                                <a href="" class="font-size-12" style="text-decoration: none;">Daily Tuition <br>Delivered</a>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-center">
+                                    <!-- <i class="bi bi-check-all"></i> -->
+                                    <svg class="bi check-all" width="30" height="30">
+                                        <use xlink:href="#check-all" />
+                                    </svg>
+                                </div>
+                                <a href="" class="font-size-12" style="text-decoration: none;">1 Year <br>Warranty</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Policy Ends -->
+                    <hr>
+                    <!-- Order Details Begins -->
+                    <div class="d-flex flex-column text-dark" id="order-details">
+                        <div class="fs-14">
+                            <!-- <span><i class="bi bi-star-fill text-warning"></i></span>
+                            <span><i class="bi bi-star-fill"></i></span>
+                            <span><i class="bi bi-star-fill"></i></span>
+                            <span><i class="bi bi-star-fill"></i></span>
+                            <span><i class="bi bi-star-half"></i></span> -->
+                            <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                            <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                            <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                            <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                            <span><svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg></span>
+                        </div>
+                        <small>Delivery by: Mar 29 - Apr 1</small>
+                        <small>Sold by <a href="#">Daily Electronics</a> 4.5 out of 5 | 18,198 daily ratings</small>
+                        <small><img src="bootstrap-icons-1.9.1/geo-alt-fill.svg" alt="">&nbsp;&nbsp;Deliver to Customer -  424201</small>
+                    </div>
+                    <!-- Order Details Ends  -->
+
+                    <div class="row py-3 g-4">
+                        <div class="col-xxl-6 order-md-first col-12 order-last">
+                            <!-- Color -->
+
+                            <div class="d-sm-flex align-items-center justify-content-between py-0 py-sm-2">
+                                <h4 class="font-size-18">Color</h4>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="rounded-pill  mx-md-2" style="padding: 20px; background-color: rgb(196, 157, 86);">
+                                        <button class="btn fs-14"></button>
+                                    </div>
+                                    <div class="rounded-pill  mx-md-2" style="padding: 20px; background-color: rgb(53, 73, 73)">
+                                        <button class="btn fs-14"></button>
+                                    </div>
+                                    <div class="rounded-pill  mx-md-2" style="padding: 20px; background-color: rgb(70, 136, 136)">
+                                        <button  class="btn fs-14"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Color -->
+                        </div>
+                        <div class="col-xxl-6 col-12">
+                            <div class="qty d-flex">
+                                <h6>Qty</h6>
+                                <div class="d-flex px-4">
+                                    <button class="qty-up border bg-light btn btn-light" data-id="1" type="button">
+                                        <img src="bootstrap-icons-1.9.1/chevron-up.svg" alt="">
+                                    </button>
+                                    <input name="hidden_item_quantity" type="text" class="qty__input border px-2 w-100 bg-light" data-id="1" value="1" placeholder="1" style="display: block;">
+                                    <button class="qty-down border bg-light btn btn-light" data-id="1" type="button">
+                                        <img src="bootstrap-icons-1.9.1/chevron-down.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Size Begins -->
+                    <div class="size my-3">
+                        <h4>Size</h4>
+                        <div class="d-flex align-items-center">
+                            <div class="border">
+                                <button class="btn btn-default p-2 mx-2 fs-14">S</button>
+                            </div>
+                            <div class="border">
+                                <button class="btn btn-default p-2 mx-2 fs-14">M</button>
+                            </div>
+                            <div class="border">
+                                <button class="btn btn-default p-2 mx-2 fs-14">L</button>
+                            </div>
+                            <div class="border">
+                                <button class="btn btn-default p-2 mx-2 fs-14">XL</button>
+                            </div>
+                            <div class="border">
+                                <button class="btn btn-default p-2 mx-2 fs-14">XXL</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Size Ends -->
+
+
+                </div>
+                <!-- Nav Tabs Section -->
+                <div class="col-12">
+                    <nav style="padding-bottom: 100px;"> 
+                        <div class="nav mb-3 m-auto" id="nav-tab" role="tablist">
+                            <a class="nav-link active nav-tab-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" href="#" role="tab">Description</a>
+                            <a class="nav-link nav-tab-link" id="more-info-tab" data-bs-toggle="tab" data-bs-target="#more-info" href="#" role="tab">Additional Information</a>
+                            <a class="nav-link nav-tab-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" href="#" role="tab">Reviews(2)</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent"  style="padding-bottom: 100px;">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                            <h2 style="text-decoration: underline;color:var(--dark-redish-purple);margin-bottom: 40px ;">Description</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis eius voluptas sequi porro quaerat corporis. Nesciunt vero esse amet fugit rem exercitationem quas incidunt nobis. Temporibus ipsa nesciunt quae sequi ea quo quasi perspiciatis. Itaque ratione tempore praesentium repellendus optio rem sint recusandae tenetur eaque cupiditate? Autem cumque voluptatum quae, aspernatur nostrum harum quam quisquam, ea qui repellat, optio adipisci pariatur perspiciatis explicabo. Minima ut accusantium maxime ipsa eos pariatur.
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="more-info" role="tabpanel" aria-labelledby="more-info-tab">
+                            <h2 style="text-decoration: underline;color:var(--dark-redish-purple);margin-bottom: 40px ;">Additional Information</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis eius voluptas sequi porro quaerat corporis. Nesciunt vero esse amet fugit rem exercitationem quas incidunt nobis. Temporibus ipsa nesciunt quae sequi ea quo quasi perspiciatis. Itaque ratione tempore praesentium repellendus optio rem sint recusandae tenetur eaque cupiditate? Autem cumque voluptatum quae, aspernatur nostrum harum quam quisquam, ea qui repellat, optio adipisci pariatur perspiciatis explicabo. Minima ut accusantium maxime ipsa eos pariatur.
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            
+                            <!-- Tab Reviews -->
+
+                            <div id="tab_3" class="tab_container">
+                                <div class="row">
+
+                                    <!-- User Reviews -->
+
+                                    <div class="col-lg-6 reviews_col">
+                                        <div class="tab_title reviews_title">
+                                            <h2 style="text-decoration: underline;color:var(--dark-redish-purple);margin-bottom: 40px ;">Reviews (2)</h2>
+                                        </div>
+
+                                        <!-- User Review -->
+
+                                        <div class="user_review_container d-flex flex-column flex-sm-row">
+                                            <div class="user">
+                                                <div class="user_pic"></div>
+                                            </div>
+                                            <div class="review">
+                                                <div class="review_date">27 Aug 2016</div>
+                                                <div class="user_name">Brandon William</div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                <div class="user-rating">
+                                                    <ul class="list-unstyled list-inline">
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-star-half" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- User Review -->
+
+                                        <div class="user_review_container d-flex flex-column flex-sm-row">
+                                            <div class="user">
+                                                <div class="user_pic"></div>
+                                            </div>
+                                            <div class="review">
+                                                <div class="review_date">27 Aug 2016</div>
+                                                <div class="user_name">Brandon William</div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                <div class="user-rating">
+                                                    <ul class="list-unstyled list-inline">
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <!-- <i class="bi bi-star-half" aria-hidden="true"></i> -->
+                                                            <svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Add Review -->
+
+                                    <div class="col-lg-6 add_review_col">
+
+                                        <div class="add_review">
+                                            <form id="review_form" action="post">
+                                                <div>
+                                                    <h1>Add Review</h1>
+                                                    <input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
+                                                    <input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
+                                                </div>
+                                                <div>
+                                                    <div class="d-md-flex justify-content-start">
+                                                        <h1 class="me-2">Your Rating:</h1>
+                                                        <div class="user-rating">
+                                                            <ul class="list-unstyled list-inline">
+                                                                <li class="list-inline-item">
+                                                                    <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                                    <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                                    <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                                    <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <!-- <i class="bi bi-starfill" aria-hidden="true"></i> -->
+                                                                    <svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <!-- <i class="bi bi-star-half" aria-hidden="true"></i> -->
+                                                                    <svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+                                                </div>
+                                                <div class="text-left text-sm-right">
+                                                    <button type="submit" class="btn submit-btn" name="submit">
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section seperator -->
+    <div class="ftet"></div>
+
+    <!-- Latest Products for this month Begins-->
+    <section class="p-5 bg-light" id="top-sale">
+        <div class="text-center">
+            <h3 class="text-start py-2">Other Related Products</h3>
+            <!-- Set up your HTML -->
+            <div class="owl-carousel owl-theme">
+                <div class="item mb-2">
+                    <div id="owl-carousel-item-cover" >
+                        <a href="product.html" id="anchor-link">
+                            <img src="Image/nikeshoe.png" alt="" class="img-fluid mb-3" id="owl-carousel-item">
+                        </a>
+                        <span id="before-link">10%</span>
+                    </div>
+                    <div class="text-center">
+                        <h5>Nike Air Max</h5>
+                        <!-- <span><i class="bi bi-star-fill text-warning"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-half"></i></span> -->
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg></span>
+                    </div>
+                    <div class="py-2">
+                        <span class="fw-bold">$900</span>
+                        <br>
+                        <span><del>$1000</del></span>
+                    </div>
+                    <div>
+                    <a href="product.html" class="btn">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="item mb-2">
+                    <div id="owl-carousel-item-cover" >
+                        <a href="product.html" id="anchor-link">
+                            <img src="Image/nikeshoe2.png" alt="" class="img-fluid mb-3" id="owl-carousel-item">
+                        </a>
+                        <span id="before-link">10%</span>
+                    </div>
+                    <div class="text-center">
+                        <h5>Nike Dunkers</h5>
+                        <!-- <span><i class="bi bi-star-fill text-warning"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-half"></i></span> -->
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg></span>
+                    </div>
+                    <div class="py-2">
+                        <span class="fw-bold">$400</span>
+                        <br>
+                        <span><del>$500</del></span>
+                    </div>
+                    <div>
+                    <a href="product.html" class="btn">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="item mb-2">
+                    <div id="owl-carousel-item-cover" >
+                        <a href="product.html" id="anchor-link">
+                            <img src="Image/headset.png" alt="" class="img-fluid mb-3" id="owl-carousel-item">
+                        </a>
+                        <span id="before-link">10%</span>
+                    </div>
+                    <div class="text-center">
+                        <h5>Head sets</h5>
+                        <!-- <span><i class="bi bi-star-fill text-warning"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-half"></i></span> -->
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg></span>
+                    </div>
+                    <div class="py-2">
+                        <span class="fw-bold">$400</span>
+                        <br>
+                        <span><del>$500</del></span>
+                    </div>
+                    <div>
+                    <a href="product.html" class="btn">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="item mb-2">
+                    <div id="owl-carousel-item-cover" >
+                        <a href="product.html" id="anchor-link">
+                            <img src="Image/product_7.png" alt="" class="img-fluid mb-3" id="owl-carousel-item">
+                        </a>
+                        <span id="before-link">10%</span>
+                    </div>
+                    <div class="text-center">
+                        <h5>Wool Vest</h5>
+                        <!-- <span><i class="bi bi-star-fill text-warning"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-half"></i></span> -->
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg></span>
+                    </div>
+                    <div class="py-2">
+                        <span class="fw-bold">$400</span>
+                        <br>
+                        <span><del>$500</del></span>
+                    </div>
+                    <div>
+                    <a href="product.html" class="btn">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="item mb-2">
+                    <div id="owl-carousel-item-cover" >
+                        <a href="product.html" id="anchor-link">
+                            <img src="Image/product_6.png" alt="" class="img-fluid mb-3" id="owl-carousel-item">
+                        </a>
+                        <span id="before-link">10%</span>
+                    </div>
+                    <div class="text-center">
+                        <h5>Gucci Shades</h5>
+                        <!-- <span><i class="bi bi-star-fill text-warning"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-fill"></i></span>
+                        <span><i class="bi bi-star-half"></i></span> -->
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-fill" width="20" height="20"><use xlink:href="#star-fill" /></svg></span>
+                        <span><svg class="bi star-half" width="20" height="20"><use xlink:href="#star-half" /></svg></span>
+                    </div>
+                    <div class="py-2">
+                        <span class="fw-bold">$400</span>
+                        <br>
+                        <span><del>$500</del></span>
+                    </div>
+                    <div>
+                    <a href="product.html" class="btn">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Products for this month ends -->
+
+    <!-- Section seperator -->
+    <div class="ftet"></div>
+
+    <!-- Services Section -->
+    <section class="services" id="service">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 col-12 services-col">
+                    <div class="d-flex align-items-center justify-content-start services-item">
+                        <div class="services-icon me-3">
+                            <!-- <i class="bi bi-truck" aria-hidden="true"></i> -->
+                            <svg class="bi truck" width="30" height="30">
+                                <use xlink:href="#truck" />
+                            </svg>
+                        </div>
+                        <div class="services-content">
+                            <h6>Low charges on delivery fees</h6>
+                            <p>suffer alteration in some form</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 services-col">
+                    <div class="d-flex align-items-center justify-content-start services-item">
+                        <div class="services-icon me-3">
+                            <!-- <i class="bi bi-cash" aria-hidden="true"></i> -->
+                            <svg class="bi cash" width="30" height="30">
+                                <use xlink:href="#cash" />
+                            </svg>
+                        </div>
+                        <div class="services-content">
+                            <h6>Cash on delivery</h6>
+							<p>The Internet Tend To Repeat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 services-col">
+                    <div class="d-flex align-items-center justify-content-start services-item">
+                        <div class="services-icon me-3">
+                            <!-- <i class="bi bi-repeat" aria-hidden="true"></i> -->
+                            <svg class="bi repeat" width="30" height="30">
+                                <use xlink:href="#repeat" />
+                            </svg>
+                        </div>
+                        <div class="services-content">
+                            <h6>45 days return</h6>
+							<p>make it look readable</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 services-col">
+                    <div class="d-flex align-items-center justify-content-start services-item">
+                        <div class="services-icon me-3">
+                            <!-- <i class="bi bi-clock" aria-hidden="true"></i> -->
+                            <svg class="bi clock" width="30" height="30">
+                                <use xlink:href="#clock" />
+                            </svg>
+                        </div>
+                        <div class="services-content">
+                            <h6>opening all week</h6>
+                            <p>8AM - 10AM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service section ends -->
+
+    <!-- News Letter Section Begins -->
+    <div class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+						<h4>Newsletter</h4>
+						<p>Subscribe to our newsletter and get 20% off your first purchase</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<form action="post">
+						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+							<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- News Letter Section ends -->
+
+    <!-- footer section begins -->
+    <div class="container">
+        <footer class="py-5">
+          <div class="row">
+            <div class="col-6 col-md-3">
+              <h5>Section</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+              </ul>
+            </div>
+      
+            <div class="col-6 col-md-3">
+              <h5>Section</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+              </ul>
+            </div>
+      
+            <div class="col-6 col-md-3">
+              <h5>Section</h5>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+              </ul>
+            </div>
+      
+            <div class="col-6 col-md-3">
+                <div class="navbar">
+                    <a href="" class="navbar-brand text-uppercase fs-5 fw-700"><span style="color: var(--green);font-size: 30px">EX</span>~Sales</a>
+                </div>
+            </div>
+          </div>
+      
+          <div class="d-flex justify-content-between py-4 my-4 border-top">
+            <p style="color: var(--green);">&copy; 2021 Fortune Private Enterprises, Inc. All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+              <li class="ms-3"><a class="" href="#"><svg class="bi twitter" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+              <li class="ms-3"><a class="" href="#"><svg class="bi instagram" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+              <li class="ms-3"><a class="" href="#"><svg class="bi facebook" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+              <li class="ms-3"><a class="" href="#"><svg class="bi pinterest" width="24" height="24"><use xlink:href="#pinterest"/></svg></a></li>
+            </ul>
+          </div>
+        </footer>
+    </div>
+
+    <!-- Js Files  -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <!-- JS Links -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Custom JS File -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>
