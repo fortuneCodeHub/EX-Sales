@@ -506,13 +506,8 @@ a {
         font-weight: 700;
         text-align: center;
     }
-    .carousel-caption .caption-btn-bg {
-        padding: 10px 0px;
-        text-align: center;
-    }
     .carousel-caption .caption-btn-bg .caption-btn {
-        font-weight: 600;
-        font-size: 20px;
+        display: none;
     }
 }
 /* .carousel */
